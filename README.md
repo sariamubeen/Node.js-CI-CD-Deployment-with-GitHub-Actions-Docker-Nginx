@@ -58,7 +58,6 @@ In the example above, we use `dotenv` in development to load variables from a `.
 We also include a `package.json` with necessary dependencies and scripts:
 
 ```json
-// package.json (excerpt)
 {
   "name": "my-node-app",
   "version": "1.0.0",
@@ -71,9 +70,6 @@ We also include a `package.json` with necessary dependencies and scripts:
   "dependencies": {
     "express": "^4.18.2",
     "dotenv": "^16.0.3"
-  },
-  "devDependencies": {
-    // (Dev dependencies such as testing or linting libraries would go here)
   }
 }
 ```
@@ -91,7 +87,7 @@ WORKDIR /app
 
 # Install dependencies (copy package.json first for caching)
 COPY package*.json ./
-RUN npm ci --only=production
+RUN npm i --only=production
 
 # Copy application source code
 COPY . .
